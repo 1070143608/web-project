@@ -1,0 +1,5 @@
+git add . # 添加本地仓库的所有文件
+git commit -m "comments" 
+git remote rm origin # 清空当前远程oringin
+git remote add origin https://github.com/ardupilotdrone/ardupilot.git
+git push -u origin master  #上传代码 # 如果错误使用这个git push -u origin +master 

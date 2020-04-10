@@ -1,0 +1,235 @@
+touch file #创建文件
+
+pwd #查看当前所在目录
+CTRL+c #complete the information
+ctrl+s # pause the current program
+ctrl+a # move cursor to head of the row
+ctrl+e # move cursor to end of the row
+man command_name # message of command you input
+sudo apt-get update #update
+sudo apt_get install software #install
+
+3
+sudo adduser user # create a user named user
+su - user # sign in user
+groups user # check which group user belongs to
+sudo usermod -G sudo lilei # add lilei to group sudo
+sudo deluser lilei # del user lilei
+cat (| grep -E "str")# view file(filter some message)
+ls -l #display all file message
+ls -a #display hidden files besides nomal files
+ls -al or -dl or -asSh
+sudo chown shiyanlou iphone11 # chown iphone11
+chmod 600 iphone11 # modify permission of iphone11
+chmod go-rw iphone11 # remove permission of 'r' and 'w' of group and others
+
+4 目录结构及文件基本操作
+touch file # create file
+touch love_{1..10}.txt #create many files
+mkdir dir # create dir
+mkdir -p father/son/grandson # create multi-level dir
+cp test father/son/grandson # copy File test to Dir father/son/grandson
+cp -r father family # copy Dir father to Dir family
+rm test # del File test
+rm -f test # del File test fastly
+rm -rf test # del File test fastly avoiding permission
+mv file documents # move file to Dir documents
+mv file myfile # modify file's name to myfile
+rename 's/\.txt/\.c/' *.txt # FMS File Rename
+cat, tac, nl, more, less, tail, head # view file
+file #view type of the file
+
+5.环境变量与文件的查找
+declare tmp # create a variable named tmp
+tmp=shiyanlou # two sides of '=' can't be space
+echo $tmp # read the value of echo
+export temp # set temprary environment viriable
+PATH=$PATH:/home/shiyanlou/mybin #set temprary environment viriable
+echo "PATH=$PATH:/home/shiyanlou/mybin" >> .zshrc # set environment viriable forever
+source .zshrc # activate .zshrc after adding path to .zshrc file
+PATH=${PATH%/home/shiyanlou/mybin}# delete enviroment viriable
+whereis who # query binary file, man, and source file(-b,-m,-s)
+# locate (query)
+sudo updatedb #execute firstly
+locate /usr/share/\*.jpg # query all .jpg file in /usr/share(-c, -i)
+find # a strong command ,need to data munual
+
+6.文件打包与压缩
+$ cd /home/shiyanlou
+$ zip -r -q -o shiyanlou.zip /home/shiyanlou/Desktop
+$ du -h shiyanlou.zip
+$ file shiyanlou.zip
+$ zip -r -9 -q -o shiyanlou_9.zip /home/shiyanlou/Desktop -x ~/*.zip
+$ zip -r -1 -q -o shiyanlou_1.zip /home/shiyanlou/Desktop -x ~/*.zip
+$ du -h -d 0 *.zip ~ | sort
+$ zip -r -e -o shiyanlou_encryption.zip /home/shiyanlou/Desktop # -e 加密
+$ zip -r -l -o shiyanlou.zip /home/shiyanlou/Desktop
+$ unzip shiyanlou.zip
+$ unzip -q shiyanlou.zip -d ziptest
+$ unzip -l shiyanlou.zip
+unzip -O GBK 中文压缩文件.zip
+$ cd /home/shiyanlou
+$ tar -P -cf shiyanlou.tar /home/shiyanlou/Desktop
+$ tar -xf shiyanlou.tar -C tardir # decompress a tar to tardir
+tar -tf shiyanlou.tar # check tar file
+tar -czf shiyanlou.tar.gz /home/shiyanlou/Desktop #create gz file based on tar
+tar -xzf shiyanlou.tar.gz # decompress a gzf
+
+7.文件系统操作与磁盘管理
+df # check use of disck(-h:human readable)
+du # check the capacity of dir
+du -h #同--human-readable 以K，M，G为单位，提高信息的可读性。
+du -h -d 0 ~ # 查看一级目录的信息
+du -a #同--all 显示目录中所有文件的大小。
+du -s #同--summarize 仅显示总计，只列出最后加总的值。
+#创建虚拟磁盘：
+# 输出到文件
+$ dd of=test bs=10 count=1 # 或者 dd if=/dev/stdin of=test bs=10 count=1
+# 输出到标准输出
+$ dd if=/dev/stdin of=/dev/stdout bs=10 count=1
+# 注
+在打完了这个命令后，继续在终端打字，作为你的输入
+#使用dd命令创建虚拟镜像文件：
+$ dd if=/dev/zero of=virtual.img bs=1M count=256
+$ du -h virtual.img
+$ sudo mkfs.ext4 virtual.img # format disk using mkfs
+
+8.linux下的帮助命令
+9.linux任务计划crontab
+# (1) prepare for crontab
+sudo apt-get install -y rsyslog
+sudo service rsyslog start
+sudo cron -f & # start crontab  
+# (2) add task plan to crontab
+crontab -e # add a task plan , choose 2
+*/1 * * * * touch /home/shiyanlou/$(date +\%Y\%m\%d\%H\%M\%S) # add task plan to crontab
+# (3) check whether cron is running
+crontab -l # check what tasks added
+ps aux | grep cron # check whether cron is running
+sudo tail -f /var/log/syslog # view log
+# (4) delete task
+crontab -r
+
+10.命令执行顺序控制与管道
+# 自动执行下面三条命令
+sudo apt-get update;sudo apt-get install some-tool;some-tool
+# 如果 &&前命令执行成功，则执行后面命令
+which cowsay>/dev/null && cowsay -f head-in ohch~
+# 如果 || 前命令执行不成功，则执行后面命令
+which cowsay>/dev/null || echo "cowsay has not been install, please run 'sudo apt-get install cowsay' to install"
+
+# | 表示管道符号，管道将前面一个进程的输出作为下个进程的输入
+ls -al /etc | less
+
+# cut 打印每一行的某一字段
+# 前五个（包含第五个）
+$ cut /etc/passwd -c -5
+# 前五个之后的（包含第五个）
+$ cut /etc/passwd -c 5-
+# 第五个
+$ cut /etc/passwd -c 5
+# 2到5之间的（包含第五个）
+$ cut /etc/passwd -c 2-5
+
+# grep 在文本中或stdin中查找匹配字符串
+grep [命令选项]... 用于匹配的表达式 [文件]...
+
+# wc 用于统计并输出一个文件中行 单词 字节的数目
+# 行数
+$ wc -l /etc/passwd
+# 单词数
+$ wc -w /etc/passwd
+# 字节数
+$ wc -c /etc/passwd
+# 字符数
+$ wc -m /etc/passwd
+# 最长行字节数
+$ wc -L /etc/passwd
+
+# sort排序命令
+cat /etc/passwd | sort #默认字典排序
+
+# uniq 去重
+history | cut -c 8- | cut -d ' ' -f 1 | uniq #不连续的不能去重
+# 先排序再去重
+$ history | cut -c 8- | cut -d ' ' -f 1 | sort | uniq
+# 或者$ history | cut -c 8- | cut -d ' ' -f 1 | sort -u
+# 输出重复过的行（重复的只输出一个）及重复次数
+$ history | cut -c 8- | cut -d ' ' -f 1 | sort | uniq -dc
+# 输出所有重复的行
+$ history | cut -c 8- | cut -d ' ' -f 1 | sort | uniq -D
+# 输出重复过的行（重复的只输出一个）及重复次数
+$ history | cut -c 8- | cut -d ' ' -f 1 | sort | uniq -dc
+# 输出所有重复的行
+$ history | cut -c 8- | cut -d ' ' -f 1 | sort | uniq -D
+
+# 11. 简单的文本处理
+# 删除 "hello shiyanlou" 中所有的'o','l','h'
+$ echo 'hello shiyanlou' | tr -d 'olh'
+# 将"hello" 中的ll,去重为一个l
+$ echo 'hello' | tr -s 'l'
+# 将输入文本，全部转换为大写或小写输出
+$ echo 'input some text here' | tr '[:lower:]' '[:upper:]'
+# 上面的'[:lower:]' '[:upper:]'你也可以简单的写作'[a-z]' '[A-Z]',当然反过来将大写变小写也是可以的
+
+# col 命令可以将Tab换成对等数量的空格键，或反转这个操作。
+# 查看 /etc/protocols 中的不可见字符，可以看到很多 ^I ，这其实就是 Tab 转义成可见字符的符号
+$ cat -A /etc/protocols
+# 使用 col -x 将 /etc/protocols 中的 Tab 转换为空格,然后再使用 cat 查看，你发现 ^I 不见了
+$ cat /etc/protocols | col -x | cat -A
+
+# join 将两个文件中包含相同内容的那一行合并在一起
+-t	指定分隔符，默认为空格
+-i	忽略大小写的差异
+-1	指明第一个文件要用哪个字段来对比，默认对比第一个字段
+-2	指明第二个文件要用哪个字段来对比，默认对比第一个字段
+
+# paste 这个命令与join 命令类似，它是在不对比数据的情况下，简单地将多个文件合并一起，以Tab隔开。
+paste [option] file...
+-d	指定合并的分隔符，默认为 Tab
+-s	不合并到一行，每个文件为一行
+
+# 12. 数据流重定向
+$ echo 'hello shiyanlou' > redirect  # 将数据输入到文件中，会覆盖文件中原来数据
+$ echo 'www.shiyanlou.com' >> redirect # 不会覆盖
+$ cat redirect
+cat > Documents/test.c << EOF #将 cat 的连续输出（heredoc 方式）重定向到一个文件
+cat Documents/test.c hello.c &>somefilehell #只用bash提供的特殊的重定向符号"&"将标准错误和标准输出同时重定向到文件
+$ echo 'hello shiyanlou' | tee hello # 除了需要将输出重定向到文件,也需要将信息打印在终端
+
+# 永久重定向，先开启一个子 Shell
+$ zsh
+# 使用exec替换当前进程的重定向，将标准输出重定向到一个文件
+$ exec 1>somefile
+# 后面你执行的命令的输出都将被重定向到文件中,直到你退出当前子shell，或取消exec的重定向（后面将告诉你怎么做）
+$ ls
+$ exit
+
+# 13. 正则表达式
+# grep默认是区分大小写的，这里将匹配所有的小写字母
+$ echo '1234\nabcd' | grep '[a-z]'
+# 将匹配所有的数字
+$ echo '1234\nabcd' | grep '[0-9]'
+# 将匹配所有的数字
+$ echo '1234\nabcd' | grep '[[:digit:]]'
+# 将匹配所有的小写字母
+$ echo '1234\nabcd' | grep '[[:lower:]]'
+# 将匹配所有的大写字母
+$ echo '1234\nabcd' | grep '[[:upper:]]'
+# 将匹配所有的字母和数字，包括0-9,a-z,A-Z
+$ echo '1234\nabcd' | grep '[[:alnum:]]'
+# 将匹配所有的字母
+$ echo '1234\nabcd' | grep '[[:alpha:]]'
+[:alnum:]	代表英文大小写字母及数字，亦即 0-9, A-Z, a-z
+[:alpha:]	代表任何英文大小写字母，亦即 A-Z, a-z
+[:blank:]	代表空白键与 [Tab] 按键两者
+[:cntrl:]	代表键盘上面的控制按键，亦即包括 CR, LF, Tab, Del.. 等等
+[:digit:]	代表数字而已，亦即 0-9
+[:graph:]	除了空白字节 (空白键与 [Tab] 按键) 外的其他所有按键
+[:lower:]	代表小写字母，亦即 a-z
+[:print:]	代表任何可以被列印出来的字符
+[:punct:]	代表标点符号 (punctuation symbol)，亦即：" ' ? ! ; : # $...
+[:upper:]	代表大写字母，亦即 A-Z
+[:space:]	任何会产生空白的字符，包括空白键, [Tab], CR 等等
+[:xdigit:]	代表 16 进位的数字类型，因此包括： 0-9, A-F, a-f 的数字与字节
+
