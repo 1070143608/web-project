@@ -233,3 +233,9 @@ $ echo '1234\nabcd' | grep '[[:alpha:]]'
 [:space:]	任何会产生空白的字符，包括空白键, [Tab], CR 等等
 [:xdigit:]	代表 16 进位的数字类型，因此包括： 0-9, A-F, a-f 的数字与字节
 
+# 16.进程管理
+#top 工具是我们常用的一个查看工具，能实时的查看我们系统的一些关键信息的变化:
+#查看物理CPU的个数
+cat /proc/cpuinfo |grep "physical id"|sort |uniq|wc -l
+每个cpu的核心数
+cat /proc/cpuinfo |grep "physical id"|grep "0"|wc -l
