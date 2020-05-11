@@ -1,0 +1,39 @@
+query Product{
+  products(spu_Id:"BdnoFXq9Stmjw9I00slSbg"){
+    edges {
+      node {
+        id
+        spu{
+          id
+        }
+        productSelectValues(modelMesh_Isnull:false){
+          edges {
+            node {
+              id
+              modelMesh{
+                id
+                nameCode
+              }
+              selectValue {
+                id
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  spu(id:"BdnoFXq9Stmjw9I00slSbg"){
+    threedModel {
+      edges {
+        node {
+          id
+          uploadedModelMediamsFileId
+          uploadedModelMediamsFileIdInfo
+          displayModelMediamsFileId
+        }
+      }
+    }
+  }
+}

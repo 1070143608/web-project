@@ -1,0 +1,89 @@
+user: testdv:9082/user/graphiql/
+shop: testdv:9091/shop/graphiql/
+media: testdv:9083/media/graphiql/
+
+查询：
+query {
+  a:resources(
+    service: "shop", 
+    attribute:"display_model_mediams_file_id",
+    table:"shop_threed_spu_product_3d_models"
+    ){
+    edges{
+      node{
+        id
+        attribute
+        presignedPostUrl(count:1){
+          url
+          fields
+        }
+        mediaType {
+          type
+          mime
+          suffix
+        }
+        maxFilesize
+        minFilesize
+      }
+    }
+    serverStatus {
+      code
+      message
+    }
+  }
+}
+
+绑定、删除：
+mutation bond{
+  createFont(input:{
+    languageCodeCommonmsLanguageCode:"1"
+    fontCode:"2"
+    name:"3"
+    fontFileMediamsFileId:"tmp/XeMWw/shop-shop_asset_fonts-font_file_mediams_file_id-oNqngmEcRvigi1eA26TGTA"
+  }
+  ){
+    id
+  }
+}
+
+query q{
+  fonts(
+    languageCodeCommonmsLanguageCode:"1"
+    fontCode:"2"
+    name:"3"
+  ){
+    edges{
+      node{
+        id
+        name
+      }
+    }
+  } 
+}
+
+mutation del{
+  deleteFont(input:[
+    {id:"2-8jj7PyRAO49X4TnWisaQ"}
+  ]
+    
+  ){
+    serverStatus {
+      code
+      message
+    }
+  }
+}
+
+mutation bond2{
+  updateSpuProduct3dModel(input:{
+    id:"",
+    displayModelMediamsFileId:"/tmp"
+    # printModelMediamsFileId:"/tmp",
+    uvmapImageMediamsFileId:"/tmp"
+  }){
+    serverStatus {
+      code 
+      message
+    }
+  }
+}

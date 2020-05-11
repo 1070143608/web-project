@@ -1,0 +1,86 @@
+#process
+mutation {
+  1:createAttribute
+  2:createAttributeValue
+  
+  3:attributeSetGroupAttributeRealtion{
+    attributeSet{
+      id
+    }
+  }
+  
+  4:createSpu(input:{
+    threedModelRel:{
+      printModelMediamsFileId:"/tmp"
+    }
+  }){
+    id
+  }
+  5:createProduct(input:{
+    spuId:id,  
+  })
+  
+}
+
+6.query
+
+# createProduct
+mutation aa{
+  createProduct(input:{
+    attributeSetsMtm:[{
+      attributesetId:"id"
+    }]
+    
+    # assetsRel:{
+    #   assetType:"m",
+    #   imageMediamsFileId:"/tmp",
+    #   videoMediamsFileId:"/tmp",
+    #   isEnabled:true,
+    #   sortorder:1
+    # },
+    spuId:"xxxxxid",
+    # brandId:null,
+    supplierUsermsEntityId:"supplierID"
+    supplierSku:"",
+    nameIntl:{
+      zh:"sd"
+    },
+    descriptionIntl:{
+      
+    },
+    displayPriceMin:0,
+    displayPriceMax:0,
+    defaultPrice:0,
+    
+    selectAttributeValuesMtm:[
+     {
+        selectValueId:"id1"
+      },
+      {
+        selectValueId:"id2"
+      },
+      {
+        selectValueId:"id3
+      "
+      }
+    ]
+    productAttributeValues:{
+      set1:{
+        group1:{
+          attr1:"value1"
+        }
+      }
+    },
+    isDisplay:true, # 发布
+    isEnabled:true, # 上架
+    limitRetailerEntityId:["entityid"]
+    
+    
+  }){
+    id
+    serverStatus {
+      code
+      message
+    }
+  }
+}

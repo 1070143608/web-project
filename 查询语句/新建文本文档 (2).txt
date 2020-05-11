@@ -1,0 +1,90 @@
+bpy.ops.object.empty_add(type='PLAIN_AXES', location=(0, 0, 0))
+bpy.ops.outliner.item_activate(extend=True, deselect_all=True)
+bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
+bpy.ops.render.render()
+
+bpy.ops.transform.resize(value=(1.31112, 1.31112, 1.31112), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
+bpy.ops.object.parent_set(type='OBJECT', keep_transform=False)
+bpy.context.object.rotation_euler[2] = 0.174533
+bpy.context.object.rotation_euler[2] = 0.349066
+bpy.context.object.rotation_euler[2] = 0.872665
+bpy.context.object.rotation_euler[2] = 3.49066
+bpy.ops.render.render()
+
+
+bpy.ops.mesh.primitive_cube_add()
+a = bpy.context.object
+bpy.ops.object.empty_add(type='PLAIN_AXES', location=(0, 0, 0))
+b = bpy.context.object
+const = b.constraints.new(type='CHILD_OF')
+const.target = a
+
+a = bpy.data.objects['Cube']
+a.rotation_eular[2] = 3 #rotation around axis Z
+
+import bpy
+bpy.ops.object.empty_add(type='PLAIN_AXES', location=(0, 0, 0)) #create empty
+child = bpy.data.objects['Camera']
+parent = bpy.data.objects['Empty']
+child.select_set(True) # choose child
+parent.select_set(True) #choose parent
+bpy.ops.object.parent_set() #建立父子关系
+bpy.ops.object.select_all(action='DESELECT') #deselect all object
+parent.rotation_euler[2] = 3
+bpy.ops.render.render() #render image
+
+
+def rotate_and_render(output_dir, output_file_format, rotation_steps = 32, rotation_angle = 360.0):
+  bpy.ops.object.add(type = 'EMPTY')
+  origin = bpy.context.object
+
+  for step in range(0, rotation_steps):
+    origin.rotation_euler[2] = radians(step * (rotation_angle / rotation_steps))
+    bpy.context.scene.render.filepath = output_dir + (output_file_format % step)
+    bpy.ops.render.render(write_still = True)
+
+  bpy.ops.object.delete(confirm = False)
+
+rotate_and_render('/Users/myusername/Pictures/VR', 'render%d.jpg')
+
+
+#final:
+
+import bpy
+def initForRotation():
+    bpy.ops.object.empty_add(type='PLAIN_AXES', location=(0, 0, 0)) #create empty
+    child = bpy.data.objects['Camera']
+    parent = bpy.data.objects['Empty']
+    child.select_set(True) # choose child
+    parent.select_set(True) #choose parent
+    bpy.ops.object.parent_set()
+    return parent
+
+def rotationAndRenderAndSave(rotation, angle, outPutBaseDir, outPutFileName):
+    rotation.rotation_euler[2] = angle
+    bpy.context.scene.render.filepath = outPutBaseDir + '\\' + str(outPutFileName) + '.jpg'
+    bpy.ops.render.render(write_still = True)
+
+rotation = initForRotation()
+rotationAndRenderAndSave(rotation, 3, 'C:\\Users\\boom\\Desktop\\xing', 2)
+
+
+# render and save
+import bpy
+import math
+def rotate_render(output_dir):
+    bpy.ops.object.empty_add(type='PLAIN_AXES', location=(0, 0, 0)) #create empty
+    child = bpy.data.objects['Camera']
+    parent = bpy.data.objects['Empty']
+    child.select_set(True) # choose child
+    parent.select_set(True) #choose parent
+    bpy.ops.object.parent_set() 
+    bpy.ops.object.select_all(action='DESELECT') #deselect all object
+    
+    #output_dir = "C:\\Users\\86139\\Desktop\\"
+    for i in range(0, 10):
+        parent.rotation_euler[2] = parent.rotation_euler[2] + 2 * math.pi / 15
+        bpy.context.scene.render.filepath = output_dir + str(i + 1)
+        bpy.ops.render.render(write_still = True)
+        print(i)
+rotate_render("C:\\Users\\86139\\Desktop\\intern\\test\\")

@@ -1,0 +1,56 @@
+
+# 1.获取所有gem类顶点信息
+import bpy
+import re
+
+pattern = re.compile(r'(.*?)_\d')
+dic = {}
+
+bpy.ops.object.select_all()
+bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY')
+for object in bpy.data.objects:
+    if object.name.startswith('gem'):
+        name = re.findall(pattern, object.name)[0]
+        if dic.get(name):
+            dic[name].append(object.location[0 : 3])
+        else:
+            dic[name] = []
+            dic[name].append(object.location[0 : 3])
+
+
+#获取位置信息
+import bpy
+#bpy.ops.object.empty_add(type='PLAIN_AXES', location=(0, 0, 0)) #create empty
+#child = bpy.data.objects['Camera']
+#parent = bpy.data.objects['Empty']
+#child.select_set(True) # choose child
+#parent.select_set(True) #choose parent
+#bpy.ops.object.parent_set() 
+
+def track():
+    bpy.ops.object.constraint_add(type='TRACK_TO')
+    bpy.context.object.constraints["Track To"].target = bpy.data.objects["Cube"]
+    bpy.context.object.constraints["Track To"].track_axis = 'TRACK_NEGATIVE_Z'
+    bpy.context.object.constraints["Track To"].up_axis = 'UP_Y'
+def CancelTrack():
+    child = bpy.data.objects['Camera']
+    child.select_set(True)
+    bpy.ops.object.track_clear(type='CLEAR_KEEP_TRANSFORM')
+def getData():
+    LX = bpy.data.objects['Camera'].location[0]
+    LY = bpy.data.objects['Camera'].location[1]
+    LZ = bpy.data.objects['Camera'].location[2]
+    RX = bpy.data.objects['Camera'].rotation_euler[0]
+    RY = bpy.data.objects['Camera'].rotation_euler[1]
+    RZ = bpy.data.objects['Camera'].rotation_euler[2]
+    return [LX,LY,LZ,RX,RY,RZ]
+def write(data):
+    with open('C:\\Users\\boom\\Desktop\\xing\\data.txt', 'a') as f:
+        for i in data:
+            f.write(str(i))
+            f.write(',')
+        f.write('\n')
+
+track()
+CancelTrack()
+write(getData())

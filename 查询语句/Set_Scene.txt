@@ -1,0 +1,390 @@
+import bpy
+
+design_data = {
+    "data": {
+        "design": {
+            "designProducts": {
+                "edges": [
+                    {
+                        "series": {
+                            "id": "seriesiddddd"
+                        },
+                        "node": {
+                            "id": "xxx",
+                            "isMain": False,
+                            "parentSonConnectors": {
+                                "parentConnect": {
+                                    "type": "parent",
+                                    "positionX": -2.71257,
+                                    "positionY": 0.3,
+                                    "positionZ": 3.64457,
+                                    "rotationX": 0.0,
+                                    "rotationY": 0.0,
+                                    "rotationZ": 0.0
+                                },
+                                "childConnect": {
+                                    "type": "child",
+                                    "positionX": 0.0,
+                                    "positionY": 0.0,
+                                    "positionZ": 0.5,
+                                    "rotationX": 0.0,
+                                    "rotationY": 0.0,
+                                    "rotationZ": 0.0
+                                }
+                            },
+                            "moduleProduct": {
+                                "module": {
+                                    "id": "moduleidddd"
+                                },
+                                "product": {
+                                    "id": "pHmGOQ5uTT2Jf_XF7Y8CNA",
+                                    "productAttributeValues": {
+                                        "metal&metal_chain&WEIGHT_01": "10",
+                                        "metal&metal_dialogbox&WEIGHT_01": "10",
+                                        "metal&metal_chain&CERTIFICATE&_mediams_file_id": "RRTYQHQeShWiaRAhdpk3qg",
+                                        "metal&metal_dialogbox&CERTIFICATE&_mediams_file_id": "RRTYQHQeShWiaRAhdpk3qg",
+                                        "metal&metal_chain&CERTIFICATE&_mediams_file_idInfo": {
+                                            "RRTYQHQeShWiaRAhdpk3qg": [
+                                                {
+                                                    "label": "original",
+                                                    "name": "original",
+                                                    "key": "shop/shop_product_products/resourceObjectMsid:pHmGOQ5uTT2Jf_XF7Y8CNA/product_attribute_values-GFIKx.png",
+                                                    "type": "i",
+                                                    "description": None,
+                                                    "cdn_host": "http://testdev:9905/jewel-dev-media-public"
+                                                }
+                                            ]
+                                        },
+                                        "metal&metal_dialogbox&CERTIFICATE&_mediams_file_idInfo": {
+                                            "RRTYQHQeShWiaRAhdpk3qg": [
+                                                {
+                                                    "label": "original",
+                                                    "name": "original",
+                                                    "key": "shop/shop_product_products/resourceObjectMsid:pHmGOQ5uTT2Jf_XF7Y8CNA/product_attribute_values-GFIKx.png",
+                                                    "type": "i",
+                                                    "description": None,
+                                                    "cdn_host": "http://testdev:9905/jewel-dev-media-public"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "productSelectValues": {
+                                        "edges": [
+                                            {
+                                                "node": {
+                                                    "updated": "2020-03-27T11:28:32.253806+00:00",
+                                                    "id": "3ZoWnrsVSsOn78-bh48UXw",
+                                                    "selectValue": {
+                                                        "id": "9BZFl5K_RxKAhpdIT2FPWA",
+                                                        "nameIntl": {
+                                                            "en": "silver",
+                                                            "zh": "银"
+                                                        },
+                                                        "value": {
+                                                            "material_name": "metal_silver_polished"
+                                                        },
+                                                        "attribute": {
+                                                            "id": "razXw57OTq2IxLTdYyRldw",
+                                                            "nameIntl": {
+                                                                "en": "material",
+                                                                "zh": "材质"
+                                                            }
+                                                        }
+                                                    },
+                                                    "modelMesh": {
+                                                        "collection": {
+                                                            "nameCode": "metal"
+                                                        },
+                                                        "nameCode": "metal_bear_small",
+                                                        "mType": {
+                                                            "id": "kPiV3ZJyQ1Gacb-GpZg-7g",
+                                                            "nameIntl": {
+                                                                "en": "metal",
+                                                                "zh": "金属"
+                                                            },
+                                                            "meshPrefix": "metal"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "series": {
+                            "id": "seriesiddddd"
+                        },
+                        "node": {
+                            "id": "xxx",
+                            "isMain": False,
+                            "parentSonConnectors": {
+                                "parentConnect": {
+                                    "type": "parent",
+                                    "positionX": 0.0,
+                                    "positionY": 0.0,
+                                    "positionZ": 0.0,
+                                    "rotationX": 0.0,
+                                    "rotationY": 0.0,
+                                    "rotationZ": 0.0
+                                },
+                                "childConnect": {
+                                    "type": "child",
+                                    "positionX": 0.0,
+                                    "positionY": 0.0,
+                                    "positionZ": 0.5,
+                                    "rotationX": 0.0,
+                                    "rotationY": 0.0,
+                                    "rotationZ": 0.0
+                                }
+                            },
+                            "moduleProduct": {
+                                "module": {
+                                    "id": "moduleidddd"
+                                },
+                                "product": {
+                                    "id": "pHmGOQ5uTT2Jf_XF7Y8CNA",
+                                    "productAttributeValues": {
+                                        "metal&metal_chain&WEIGHT_01": "10",
+                                        "metal&metal_dialogbox&WEIGHT_01": "10",
+                                        "metal&metal_chain&CERTIFICATE&_mediams_file_id": "RRTYQHQeShWiaRAhdpk3qg",
+                                        "metal&metal_dialogbox&CERTIFICATE&_mediams_file_id": "RRTYQHQeShWiaRAhdpk3qg",
+                                        "metal&metal_chain&CERTIFICATE&_mediams_file_idInfo": {
+                                            "RRTYQHQeShWiaRAhdpk3qg": [
+                                                {
+                                                    "label": "original",
+                                                    "name": "original",
+                                                    "key": "shop/shop_product_products/resourceObjectMsid:pHmGOQ5uTT2Jf_XF7Y8CNA/product_attribute_values-GFIKx.png",
+                                                    "type": "i",
+                                                    "description": None,
+                                                    "cdn_host": "http://testdev:9905/jewel-dev-media-public"
+                                                }
+                                            ]
+                                        },
+                                        "metal&metal_dialogbox&CERTIFICATE&_mediams_file_idInfo": {
+                                            "RRTYQHQeShWiaRAhdpk3qg": [
+                                                {
+                                                    "label": "original",
+                                                    "name": "original",
+                                                    "key": "shop/shop_product_products/resourceObjectMsid:pHmGOQ5uTT2Jf_XF7Y8CNA/product_attribute_values-GFIKx.png",
+                                                    "type": "i",
+                                                    "description": None,
+                                                    "cdn_host": "http://testdev:9905/jewel-dev-media-public"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "productSelectValues": {
+                                        "edges": [
+                                            {
+                                                "node": {
+                                                    "updated": "2020-03-27T11:28:32.253806+00:00",
+                                                    "id": "3ZoWnrsVSsOn78-bh48UXw",
+                                                    "selectValue": {
+                                                        "id": "9BZFl5K_RxKAhpdIT2FPWA",
+                                                        "nameIntl": {
+                                                            "en": "silver",
+                                                            "zh": "银"
+                                                        },
+                                                        "value": {
+                                                            "material_name": "metal_silver_polished"
+                                                        },
+                                                        "attribute": {
+                                                            "id": "razXw57OTq2IxLTdYyRldw",
+                                                            "nameIntl": {
+                                                                "en": "material",
+                                                                "zh": "材质"
+                                                            }
+                                                        }
+                                                    },
+                                                    "modelMesh": {
+                                                        "collection": {
+                                                            "nameCode": "metal"
+                                                        },
+                                                        "nameCode": "metal_bear_big",
+                                                        "mType": {
+                                                            "id": "kPiV3ZJyQ1Gacb-GpZg-7g",
+                                                            "nameIntl": {
+                                                                "en": "metal",
+                                                                "zh": "金属"
+                                                            },
+                                                            "meshPrefix": "metal"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "series": {
+                            "id": "seriesiddddd"
+                        },
+                        "node": {
+                            "id": "xxx",
+                            "isMain": True,
+                            "parentSonConnectors": None,
+                            "moduleProduct": {
+                                "module": {
+                                    "id": "moduleidddd"
+                                },
+                                "product": {
+                                    "id": "pHmGOQ5uTT2Jf_XF7Y8CNA",
+                                    "productAttributeValues": {
+                                        "metal&metal_chain&WEIGHT_01": "10",
+                                        "metal&metal_dialogbox&WEIGHT_01": "10",
+                                        "metal&metal_chain&CERTIFICATE&_mediams_file_id": "RRTYQHQeShWiaRAhdpk3qg",
+                                        "metal&metal_dialogbox&CERTIFICATE&_mediams_file_id": "RRTYQHQeShWiaRAhdpk3qg",
+                                        "metal&metal_chain&CERTIFICATE&_mediams_file_idInfo": {
+                                            "RRTYQHQeShWiaRAhdpk3qg": [
+                                                {
+                                                    "label": "original",
+                                                    "name": "original",
+                                                    "key": "shop/shop_product_products/resourceObjectMsid:pHmGOQ5uTT2Jf_XF7Y8CNA/product_attribute_values-GFIKx.png",
+                                                    "type": "i",
+                                                    "description": None,
+                                                    "cdn_host": "http://testdev:9905/jewel-dev-media-public"
+                                                }
+                                            ]
+                                        },
+                                        "metal&metal_dialogbox&CERTIFICATE&_mediams_file_idInfo": {
+                                            "RRTYQHQeShWiaRAhdpk3qg": [
+                                                {
+                                                    "label": "original",
+                                                    "name": "original",
+                                                    "key": "shop/shop_product_products/resourceObjectMsid:pHmGOQ5uTT2Jf_XF7Y8CNA/product_attribute_values-GFIKx.png",
+                                                    "type": "i",
+                                                    "description": None,
+                                                    "cdn_host": "http://testdev:9905/jewel-dev-media-public"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "productSelectValues": {
+                                        "edges": [
+                                            {
+                                                "node": {
+                                                    "updated": "2020-03-27T11:28:32.253806+00:00",
+                                                    "id": "3ZoWnrsVSsOn78-bh48UXw",
+                                                    "selectValue": {
+                                                        "id": "9BZFl5K_RxKAhpdIT2FPWA",
+                                                        "nameIntl": {
+                                                            "en": "silver",
+                                                            "zh": "银"
+                                                        },
+                                                        "value": {
+                                                            "material_name": "metal_silver_polished"
+                                                        },
+                                                        "attribute": {
+                                                            "id": "razXw57OTq2IxLTdYyRldw",
+                                                            "nameIntl": {
+                                                                "en": "material",
+                                                                "zh": "材质"
+                                                            }
+                                                        }
+                                                    },
+                                                    "modelMesh": {
+                                                        "collection": {
+                                                            "nameCode": "metal"
+                                                        },
+                                                        "nameCode": "metal_chain_001",
+                                                        "mType": {
+                                                            "id": "kPiV3ZJyQ1Gacb-GpZg-7g",
+                                                            "nameIntl": {
+                                                                "en": "metal",
+                                                                "zh": "金属"
+                                                            },
+                                                            "meshPrefix": "metal"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+series_data = {
+    "data": {
+      "seriesModules": {
+        "edges": [
+            {
+                "node": {
+                    "id": "ccd",
+                    "seriesModuleSpuConnectors": {
+                        "edges": [
+                            {
+                                "node": {
+                                    "type": "scenelocation",
+                                    "positionX": 0.0,
+                                    "positionY": 0.0,
+                                    "positionZ": 0.0,
+                                    "rotationX": 0.0,
+                                    "rotationY": 0.0,
+                                    "rotationZ": 0.0
+                                }
+                            }
+                        ],
+                          
+                      "series":{
+                        "id"
+                      },
+                      "module": {
+                        "id"
+                      }
+                    }
+                }
+            }
+        ]
+      }
+    }
+  }
+
+
+def get_MainModuleLocation(series_data):
+    location = series_data["data"]["seriesModules"]["edges"][0]["node"]["seriesModuleSpuConnectors"]["edges"][0]["node"]
+    return [location["positionX"], location["positionY"], location["positionZ"], location["rotationX"], location["rotationY"], location["rotationZ"]]
+
+
+def get_ObjectInfo(design_data, series_data):
+    design_dic = {}
+    main_location = get_MainModuleLocation(series_data)
+    for object in design_data["data"]["design"]["designProducts"]["edges"]:
+        node = object["node"]
+        object_dic = {}
+        if node["isMain"]:
+            object_dic["location"] = main_location
+        else:
+            ParentConnect = node["parentSonConnectors"]["parentConnect"]
+            relative_location = [ParentConnect["positionX"], ParentConnect["positionY"], ParentConnect["positionZ"], ParentConnect["rotationX"], ParentConnect["rotationY"], ParentConnect["rotationZ"]]
+            exact_location = [relative_location[i] + main_location[i] for i in range(len(main_location))]
+            object_dic["location"] = exact_location
+        mesh = node["moduleProduct"]["product"]["productSelectValues"]["edges"][0]["node"]
+        mesh_name = mesh["modelMesh"]["nameCode"]
+        material_name = mesh["selectValue"]["value"]["material_name"]
+        object_dic["material"] = material_name
+        design_dic[mesh_name] = object_dic
+    return(design_dic)
+
+
+def set_scene(objects_info):
+    for object in objects_info:
+        object_to_set = bpy.data.objects[object]
+        object_to_set.location = [objects_info[object]["location"][i] / 1000 for i in range(0, 3)]
+        material_name = objects_info[object]["material"]
+        mat = bpy.data.materials[material_name].copy()
+        object_to_set.data.materials[0] = mat
+
+
+set_scene(get_ObjectInfo(design_data, series_data))

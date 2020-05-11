@@ -1,0 +1,273 @@
+// 查询语法
+query query_product {
+    products(spu_Spu:"SPU_DP_001") { 
+      edges {
+        node {
+          id
+          productAttributeValues
+          productSelectValues {
+            edges {
+              node {
+                updated
+                id
+                selectValue {
+                  id
+                  nameIntl
+                  value
+                  attribute {
+                    id
+                    nameIntl
+                  }
+                }
+                modelMesh {
+                  collection {
+                    nameCode
+                    
+                  }
+                  nameCode
+                  mType {
+                    id
+                    nameIntl
+                    meshPrefix
+                  }
+                }
+              }
+            }
+          }
+          productAttributeValues
+        }
+      }
+    }
+  }
+
+  {
+    "data": {
+      "products": {
+        "edges": [
+          {
+            "node": {
+              "id": "369vyDGNQfm5llgCIzjWzA",
+              "productAttributeValues": {
+                "metal&metal_chain&WEIGHT_01": "10g",
+                "metal&metal_dialogbox&WEIGHT_01": "15g"
+              },
+              "productSelectValues": {
+                "edges": [
+                  {
+                    "node": {
+                      "updated": "2020-03-24T06:11:09.510521+00:00",
+                      "id": "WT7nzJS3R_W7nVXv7eW-Og",
+                      "selectValue": {
+                        "id": "LbHMX1_ITaC_RBUBNSYtxQ",
+                        "nameIntl": {
+                          "en": "rose gold",
+                          "zh": "玫瑰金"
+                        },
+                        "value": {name:"sllva"},
+                        "attribute": {
+                          "id": "razXw57OTq2IxLTdYyRldw",
+                          "nameIntl": {
+                            "en": "material",
+                            "zh": "材质"
+                          }
+                        }
+                      },
+                      "modelMesh": {
+                        "collection": {
+                          "nameCode": "paint" // collection name
+                        },
+                        "nameCode": "paint", // mesh name
+                        "mType": {
+                          "id": "KPeccbSfSVeqC9Fg198vmA",
+                          "nameIntl": {
+                            "en": "油漆",
+                            "zh": "油漆"
+                          },
+                          "meshPrefix": "paint"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "updated": "2020-03-24T06:11:09.501343+00:00",
+                      "id": "xYXfNtAIQJqJuuQK6XR2Eg",
+                      "selectValue": {
+                        "id": "Oxwi9jrHQjGwkV5phUSl_w",
+                        "nameIntl": {
+                          "en": "gold",
+                          "zh": "黄金"
+                        },
+                        "value": {},
+                        "attribute": {
+                          "id": "razXw57OTq2IxLTdYyRldw",
+                          "nameIntl": {
+                            "en": "material",
+                            "zh": "材质"
+                          }
+                        }
+                      },
+                      "modelMesh": {
+                        "collection": {
+                          "nameCode": "metal"
+                        },
+                        "nameCode": "metal_chain",
+                        "mType": {
+                          "id": "kPiV3ZJyQ1Gacb-GpZg-7g",
+                          "nameIntl": {
+                            "en": "金属",
+                            "zh": "金属"
+                          },
+                          "meshPrefix": "metal"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "updated": "2020-03-24T06:11:09.506077+00:00",
+                      "id": "YOmvD-LsQiKP8pyus31SSg",
+                      "selectValue": {
+                        "id": "Oxwi9jrHQjGwkV5phUSl_w",
+                        "nameIntl": {
+                          "en": "gold",
+                          "zh": "黄金"
+                        },
+                        "value": {},
+                        "attribute": {
+                          "id": "razXw57OTq2IxLTdYyRldw",
+                          "nameIntl": {
+                            "en": "material",
+                            "zh": "材质"
+                          }
+                        }
+                      },
+                      "modelMesh": {
+                        "collection": {
+                          "nameCode": "metal"
+                        },
+                        "nameCode": "metal_dialogbox",
+                        "mType": {
+                          "id": "kPiV3ZJyQ1Gacb-GpZg-7g",
+                          "nameIntl": {
+                            "en": "金属",
+                            "zh": "金属"
+                          },
+                          "meshPrefix": "metal"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "updated": "2020-03-24T06:11:09.498781+00:00",
+                      "id": "eVlbH_2CT_ei_XOLhBFR0A",
+                      "selectValue": {
+                        "id": "spXaVvy9RgGF9yjd3zPGTA",
+                        "nameIntl": {
+                          "en": "gold",
+                          "zh": "金"
+                        },
+                        "value": {},
+                        "attribute": {
+                          "id": "9gmuAyanSMCktgyrljTR4g",
+                          "nameIntl": {
+                            "en": "color",
+                            "zh": "颜色"
+                          }
+                        }
+                      },
+                      "modelMesh": {
+                        "collection": {
+                          "nameCode": "metal"
+                        },
+                        "nameCode": "metal_chain",
+                        "mType": {
+                          "id": "kPiV3ZJyQ1Gacb-GpZg-7g",
+                          "nameIntl": {
+                            "en": "金属",
+                            "zh": "金属"
+                          },
+                          "meshPrefix": "metal"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "updated": "2020-03-24T06:11:09.503776+00:00",
+                      "id": "DS_lQb3ARtK64GZoHusX9A",
+                      "selectValue": {
+                        "id": "spXaVvy9RgGF9yjd3zPGTA",
+                        "nameIntl": {
+                          "en": "gold",
+                          "zh": "金"
+                        },
+                        "value": {},
+                        "attribute": {
+                          "id": "9gmuAyanSMCktgyrljTR4g",
+                          "nameIntl": {
+                            "en": "color",
+                            "zh": "颜色"
+                          }
+                        }
+                      },
+                      "modelMesh": {
+                        "collection": {
+                          "nameCode": "metal"
+                        },
+                        "nameCode": "metal_dialogbox",
+                        "mType": {
+                          "id": "kPiV3ZJyQ1Gacb-GpZg-7g",
+                          "nameIntl": {
+                            "en": "金属",
+                            "zh": "金属"
+                          },
+                          "meshPrefix": "metal"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "updated": "2020-03-24T06:11:09.508287+00:00",
+                      "id": "TPX2KleDSnqyR82rM77XEw",
+                      "selectValue": {
+                        "id": "zFYmq2LZTBeRPInyyxwKHw",
+                        "nameIntl": {
+                          "en": "rose gold",
+                          "zh": "玫瑰金"
+                        },
+                        "value": {},
+                        "attribute": {
+                          "id": "9gmuAyanSMCktgyrljTR4g",
+                          "nameIntl": {
+                            "en": "color",
+                            "zh": "颜色"
+                          }
+                        }
+                      },
+                      "modelMesh": {
+                        "collection": {
+                          "nameCode": "paint"
+                        },
+                        "nameCode": "paint",
+                        "mType": {
+                          "id": "KPeccbSfSVeqC9Fg198vmA",
+                          "nameIntl": {
+                            "en": "油漆",
+                            "zh": "油漆"
+                          },
+                          "meshPrefix": "paint"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }

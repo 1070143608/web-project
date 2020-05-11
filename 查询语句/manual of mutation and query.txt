@@ -1,0 +1,139 @@
+mutation create{
+  createProduct(input:{
+    supplierUsermsEntityId:"s",
+    supplierSku:"s",
+    nameIntl:{
+      zh:"q"
+    },
+    displayPriceMin:0.01,
+    displayPriceMax:0.02,
+    defaultPrice:2,
+    
+  }){
+    id
+    serverStatus{
+      code
+      message
+    }
+  }
+}
+mutation update{
+  updateProduct(input:{
+    id:"ebLSOW6JSMO0lOdQ5KGV0A"
+    displayPriceMin:222546
+  }){
+    serverStatus{
+      code
+      message
+    }
+    displayPriceMin
+  }
+}
+query s{
+  products(
+    supplierUsermsEntityId:"s"
+  ){
+    edges{
+      node{
+        id
+        displayPriceMin
+      }
+    }
+  }
+}
+mutation del{
+  deleteProduct(input:[
+    {
+      id:"ebLSOW6JSMO0lOdQ5KGV0A"
+    }
+  ]){
+    serverStatus{
+      code
+      message
+    }
+    data{
+      id
+    }
+  }
+}
+
+
+
+
+
+
+query a{
+  a:products(
+    supplierSku:"spuidgajsKRMkTIKPZ1q3sGVAeQ"
+  ){
+    edges{
+      node{
+        id
+        supplierSku
+      }
+    }
+    serverStatus{
+      code
+      message
+    }
+  }
+  b:products(
+    supplierSku:"spuidgajsKRMkTIKPZ1q3sGVAeQ"
+  ){
+    edges{
+      node{
+        id
+        supplierSku
+      }
+    }
+    serverStatus{
+      code
+      message
+    }
+  }
+}
+query ab{
+  products(
+    supplierSku:"spuidgajsKRMkTIKPZ1q3sGVAeQ"
+  ){
+    edges{
+      node{
+        id
+        supplierSku
+      }
+    }
+    serverStatus{
+      code
+      message
+    }
+  }
+}
+
+
+
+query {
+  a:product(
+    id:"5646"
+  ){
+    id
+    supplierUsermsEntityId
+    serverStatus{
+      code
+      message
+    }
+  }
+  
+  b:products{
+    serverStatus{
+      code
+      message
+    }
+    edges{
+      node{
+        id
+      }
+    }
+  }
+}
+
+

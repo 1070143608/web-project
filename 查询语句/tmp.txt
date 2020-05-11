@@ -1,0 +1,223 @@
+mutation step1{
+  createAttribute(input:{
+    attributeValuesRel:[
+      {
+        valueCode:"453"
+        nameIntl:{zh:"中文",}
+        value:{apperence:"size"}
+      }
+    ]
+    attrTarget:"76"
+    attrType:"34"
+    attrScope:"453"
+    attrCode:"45"
+    nameIntl:{en:"as"}
+  }){
+    id
+    serverStatus{
+      code
+      message
+    }
+  }
+}
+mutation stp1_del{
+  deleteAttribute(input:{
+    id:"s5zIJJK6Tqu1po4i6Yl67g"
+  }){
+    serverStatus{
+      code
+      message
+    }
+  }
+}
+# query step1QQ{
+#   attribute(id:"CcnvnPP6R869HFQaTWCSOw"){
+#     id
+#   }
+# }
+query step1Q{
+  attributes{
+    edges{
+      node{
+        id
+        updated
+        attrTarget
+        attrScope
+      }
+    }
+  }
+}
+mutation step2{
+  createAttributeValue(input:{
+    attributeId:"wJe_R-oHSdu1P09UPR7Q6g"
+    valueCode:"15"
+    nameIntl:{zh:"中文24", en:"en21"}
+    value:{size:"4",size:"5",size:"6"}
+  }){
+    id
+    serverStatus{
+      code
+      message
+    }
+  }
+}
+mutation step2_del{
+  deleteAttribute(input:{
+    id:"-mKP_bjwRIeJBHZmaVWdQw"
+  }){
+    serverStatus{
+      code
+      message
+    }
+  }
+}
+query step2Q{
+  attributeValues{
+    edges{
+      node{
+        id
+        updated
+        valueCode
+        attribute {
+          id
+        }
+      }
+    }
+  }
+}
+
+mutation step3{
+  attributeSetGroupAttributeRealtion(input:{
+    setCode:"33"
+    setNameIntl:{zh:"戒指",en:"ring"}
+    groups:[{
+      groupNameIntl:{zh:"中文3", en:"en3"}
+      groupRelation:["0jv5mCJWTfiLej2ruSh8JQ","lR9bAWwbRSagxsfaK9QPDg"]
+    }]
+  }){
+    attributeSet{
+      id
+    }
+    serverStatus{
+      code
+      message
+    }
+  }
+}
+mutation step3_del{
+  deleteAttributeSet(input:{
+    id:"God8-s-QQCWsX3--2QU5dQ"
+  }){
+    serverStatus{
+      code
+      message
+    }
+  }
+}
+query step3Q{
+  attributeSets{
+    edges{
+      node{
+        id
+        updated
+        setCode
+      }
+    }
+  }
+}
+mutation step4{
+  createSpu(input:{
+    threedModelRel:{
+      printModelMediamsFileId:"tmp/KRpSC/shop-shop_threed_spu_product_3d_models-display_model_mediams_file_id-PMD6z0M5QPCwME8qt9jqGA"
+    }
+    supplierUsermsEntityId:"44"
+    spu:"44"
+    nameIntl:{zh:"中文4", en:"en4"}
+  }){
+    id
+    serverStatus{
+      code
+      message
+    }
+  }
+}
+query step4Q{
+  spus{
+    edges{
+      node{
+        id
+        supplierUsermsEntityId
+      }
+    }
+  }
+}
+mutation step5{
+  createProduct(input:{
+    attributeSetsMtm:[
+      {
+      attributeSetId:"HSd3ScSVR9Wygn2eiGEFCQ"
+      },]
+    spuId:"5VQqTen9Qo6YAL4LHCU6Lg",
+    supplierUsermsEntityId:"44"
+    supplierSku:"165"
+    nameIntl:{
+      zh:"product5"
+    },
+    descriptionIntl:{zh:"中文5", en:"en5"},
+    displayPriceMin:0,
+    displayPriceMax:0,
+    defaultPrice:0,
+    
+    selectAttributeValuesMtm:[
+     {
+        selectValueId:"rkWBPCyiRqW862l0LV8LWw"
+      },
+      {
+        selectValueId:"qbhuKD-XSyuGxvGwyUOZmw"
+      }
+    ]
+    productAttributeValues:{
+      set1:{
+        group1:{
+          attr1:"value1"
+        }
+      }
+    },
+    isDisplay:true, # 发布
+    isEnabled:true, # 上架
+    limitRetailerEntityId:["entityid"]
+    
+    
+  }){
+    id
+    serverStatus {
+      code
+      message
+    }
+  }
+}
+query step5Q{
+  products{
+    edges{
+      node{
+        id
+        updated
+      }
+    }
+  }
+}
+mutation del{
+  deleteProduct(input:[
+    {
+      id:"PITJiH2ORFik4jvggdY4ag"
+    }
+  ]){
+    serverStatus{
+      code
+      message
+    }
+    data{
+      id
+    }
+  }
+}
